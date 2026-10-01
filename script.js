@@ -1,435 +1,142 @@
 /**
- * 부경대학교 사회복지학전공 웹사이트 | Window OS Engine
- * Concept: Noni Cerâmica Artisanal Tactile GUI
+ * 국립부경대학교 사회복지학전공 웹사이트
+ * Modern Scrolling Landing Page Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // State
-  let highestZ = 100;
-  let activeWindowId = null;
-  let soundEnabled = true;
 
-  // Window default positions cache for restore
-  const windowPosCache = {};
+  // 1. Sticky Navigation & Scroll Spy
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  const scrollTopBtn = document.getElementById('scroll-to-top');
 
-  // Audio Context for subtle tactile ceramic clicks
-  let audioCtx = null;
-  function playCeramicChime(frequency = 520, duration = 0.04) {
-    if (!soundEnabled) return;
-    try {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    } catch (e) {
-      // Audio might be blocked before first interaction
+  function handleScroll() {
+    const scrollY = window.pageYOffset;
+
+    // Header background toggle
+    if (scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
     }
+
+    // Scroll to Top button visibility
+    if (scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+
+    // Scroll Spy active link
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 140;
+      const sectionId = current.getAttribute('id');
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
   }
 
-  // Windows list
-  const windows = Array.from(document.querySelectorAll('.window'));
-  const taskbarAppsContainer = document.getElementById('taskbar-apps');
-  const startMenu = document.getElementById('start-menu');
-  const startBtn = document.getElementById('start-btn');
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 
-  // Cache initial position of all windows
-  windows.forEach((win) => {
-    const id = win.getAttribute('data-window-id');
-    windowPosCache[id] = {
-      top: win.style.top,
-      left: win.style.left,
-      width: win.style.width,
-      height: win.style.height,
-    };
+  // Scroll to Top
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 
-    // Close windows initially except the intro and dasom welcome window
-    if (id !== 'win-intro') {
-      win.style.display = 'none';
-    } else {
-      createTaskbarTab(id, '🏛️ 학과 소개');
-      focusWindow(win);
-    }
-  });
+  // 2. Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-  // Focus Window
-  function focusWindow(win) {
-    if (!win) return;
-    highestZ += 1;
-    win.style.zIndex = highestZ;
-    windows.forEach(w => w.classList.remove('active-window'));
-    win.classList.add('active-window');
-    activeWindowId = win.getAttribute('data-window-id');
-
-    // Update Taskbar Tab UI
-    document.querySelectorAll('.task-tab').forEach(tab => {
-      if (tab.dataset.targetWindow === activeWindowId) {
-        tab.classList.add('active-tab');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      if (navMenu.style.display === 'flex') {
+        navMenu.style.display = 'none';
       } else {
-        tab.classList.remove('active-tab');
-      }
-    });
-  }
-
-  // Open Window
-  function openWindow(id) {
-    const win = document.getElementById(id);
-    if (!win) return;
-
-    if (win.style.display === 'none' || win.classList.contains('minimized')) {
-      win.style.display = 'flex';
-      win.classList.remove('minimized');
-    }
-
-    createTaskbarTab(id, getWindowTitle(id));
-    focusWindow(win);
-    playCeramicChime(640, 0.06);
-
-    // Close Start Menu if open
-    closeStartMenu();
-  }
-
-  // Get Window Title
-  function getWindowTitle(id) {
-    const titleEl = document.querySelector(`#${id} .win-title-text`);
-    if (titleEl) {
-      return titleEl.textContent.split('·')[0].trim();
-    }
-    return '창';
-  }
-
-  // Get Window Icon
-  function getWindowIcon(id) {
-    const iconEl = document.querySelector(`#${id} .win-icon`);
-    return iconEl ? iconEl.textContent : '📄';
-  }
-
-  // Minimize Window
-  function minimizeWindow(win) {
-    win.classList.add('minimized');
-    win.classList.remove('active-window');
-    const id = win.getAttribute('data-window-id');
-    const tab = document.querySelector(`.task-tab[data-target-window="${id}"]`);
-    if (tab) tab.classList.remove('active-tab');
-    playCeramicChime(420, 0.05);
-  }
-
-  // Maximize / Restore Window
-  function toggleMaximize(win) {
-    if (win.classList.contains('maximized')) {
-      win.classList.remove('maximized');
-      const id = win.getAttribute('data-window-id');
-      const cached = windowPosCache[id];
-      if (cached) {
-        win.style.top = cached.top;
-        win.style.left = cached.left;
-        win.style.width = cached.width;
-        win.style.height = cached.height;
-      }
-    } else {
-      win.classList.add('maximized');
-    }
-    focusWindow(win);
-    playCeramicChime(580, 0.05);
-  }
-
-  // Close Window
-  function closeWindow(win) {
-    win.style.display = 'none';
-    win.classList.remove('active-window', 'maximized');
-    const id = win.getAttribute('data-window-id');
-    removeTaskbarTab(id);
-    playCeramicChime(380, 0.07);
-  }
-
-  // Taskbar Tab Management
-  function createTaskbarTab(id, title) {
-    let tab = document.querySelector(`.task-tab[data-target-window="${id}"]`);
-    if (!tab) {
-      tab = document.createElement('div');
-      tab.className = 'task-tab active-tab';
-      tab.dataset.targetWindow = id;
-      tab.innerHTML = `<span class="tab-icon">${getWindowIcon(id)}</span><span class="tab-label">${title}</span>`;
-      tab.addEventListener('click', () => {
-        const targetWin = document.getElementById(id);
-        if (targetWin.classList.contains('minimized') || targetWin.style.display === 'none') {
-          targetWin.style.display = 'flex';
-          targetWin.classList.remove('minimized');
-          focusWindow(targetWin);
-        } else if (targetWin.classList.contains('active-window')) {
-          minimizeWindow(targetWin);
-        } else {
-          focusWindow(targetWin);
-        }
-      });
-      taskbarAppsContainer.appendChild(tab);
-    } else {
-      tab.classList.add('active-tab');
-    }
-  }
-
-  function removeTaskbarTab(id) {
-    const tab = document.querySelector(`.task-tab[data-target-window="${id}"]`);
-    if (tab) {
-      tab.remove();
-    }
-  }
-
-  // Dragging Windows Logic
-  windows.forEach((win) => {
-    const header = win.querySelector('.window-header');
-    if (!header) return;
-
-    let isDragging = false;
-    let startX = 0, startY = 0;
-    let initialX = 0, initialY = 0;
-
-    header.addEventListener('mousedown', (e) => {
-      // Don't drag if clicking buttons
-      if (e.target.closest('.win-btn')) return;
-      if (win.classList.contains('maximized')) return;
-
-      focusWindow(win);
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      initialX = win.offsetLeft;
-      initialY = win.offsetTop;
-
-      document.body.style.cursor = 'grabbing';
-      header.style.cursor = 'grabbing';
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-
-      // Keep within bounds
-      let newLeft = Math.max(0, Math.min(window.innerWidth - 100, initialX + dx));
-      let newTop = Math.max(40, Math.min(window.innerHeight - 80, initialY + dy));
-
-      win.style.left = `${newLeft}px`;
-      win.style.top = `${newTop}px`;
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        document.body.style.cursor = 'default';
-        header.style.cursor = 'grab';
+        navMenu.style.display = 'flex';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.position = 'absolute';
+        navMenu.style.top = '100%';
+        navMenu.style.left = '0';
+        navMenu.style.width = '100%';
+        navMenu.style.background = 'rgba(15, 23, 42, 0.98)';
+        navMenu.style.padding = '20px 24px';
+        navMenu.style.gap = '16px';
       }
     });
 
-    // Window click brings to front
-    win.addEventListener('mousedown', () => {
-      focusWindow(win);
-    });
-
-    // Window controls
-    const minBtn = win.querySelector('.win-minimize');
-    const maxBtn = win.querySelector('.win-maximize');
-    const closeBtn = win.querySelector('.win-close');
-
-    if (minBtn) minBtn.addEventListener('click', () => minimizeWindow(win));
-    if (maxBtn) maxBtn.addEventListener('click', () => toggleMaximize(win));
-    if (closeBtn) closeBtn.addEventListener('click', () => closeWindow(win));
-  });
-
-  // Desktop Icons Click / Double Click
-  const desktopIcons = document.querySelectorAll('.desktop-icon');
-  desktopIcons.forEach(icon => {
-    const targetWinId = icon.getAttribute('data-window-target');
-
-    // Single click selects, double click or enter opens
-    icon.addEventListener('dblclick', () => {
-      openWindow(targetWinId);
-    });
-
-    icon.addEventListener('click', () => {
-      // Also open on mobile or single click for great accessibility
-      if (window.innerWidth <= 768) {
-        openWindow(targetWinId);
-      }
-    });
-
-    icon.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        openWindow(targetWinId);
-      }
-    });
-  });
-
-  // Start Menu Toggle
-  function toggleStartMenu() {
-    if (startMenu.classList.contains('active')) {
-      closeStartMenu();
-    } else {
-      startMenu.classList.add('active');
-      playCeramicChime(700, 0.04);
-    }
-  }
-
-  function closeStartMenu() {
-    startMenu.classList.remove('active');
-  }
-
-  startBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleStartMenu();
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!startMenu.contains(e.target) && !startBtn.contains(e.target)) {
-      closeStartMenu();
-    }
-  });
-
-  // Start Menu App Clicks
-  const startItems = document.querySelectorAll('.start-menu-list li');
-  startItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const targetId = item.getAttribute('data-launch-target');
-      if (targetId) {
-        openWindow(targetId);
-      }
-    });
-  });
-
-  // Close All Windows Button in Start Menu
-  const closeAllBtn = document.getElementById('close-all-windows-btn');
-  if (closeAllBtn) {
-    closeAllBtn.addEventListener('click', () => {
-      windows.forEach(win => closeWindow(win));
-      closeStartMenu();
-    });
-  }
-
-  // Show Desktop Button (tray bottom-right)
-  const showDesktopBtn = document.getElementById('show-desktop-btn');
-  if (showDesktopBtn) {
-    showDesktopBtn.addEventListener('click', () => {
-      windows.forEach(win => {
-        if (win.style.display !== 'none') {
-          minimizeWindow(win);
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.style.display = 'none';
         }
       });
     });
   }
 
-  // Arrange Windows (Tile nicely)
-  const arrangeBtn = document.getElementById('arrange-windows-btn');
-  if (arrangeBtn) {
-    arrangeBtn.addEventListener('click', () => {
-      const openWins = windows.filter(w => w.style.display !== 'none' && !w.classList.contains('minimized'));
-      if (openWins.length === 0) {
-        openWindow('win-intro');
-        return;
-      }
-      openWins.forEach((win, idx) => {
-        win.classList.remove('maximized');
-        const offset = idx * 36;
-        win.style.top = `${60 + offset}px`;
-        win.style.left = `${160 + offset}px`;
-        focusWindow(win);
-      });
-      playCeramicChime(540, 0.08);
-    });
-  }
+  // 3. Curriculum Tabs Switcher
+  const curriculumTabs = document.querySelectorAll('.tabs-nav .tab-btn');
+  const curriculumPanes = document.querySelectorAll('.curriculum-section .tab-content');
 
-  // Sound Toggle
-  const soundBtn = document.getElementById('toggle-sound-btn');
-  if (soundBtn) {
-    soundBtn.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      soundBtn.querySelector('.sound-icon').textContent = soundEnabled ? '🔔' : '🔕';
-      soundBtn.title = soundEnabled ? '사운드 켜짐' : '사운드 꺼짐';
-      if (soundEnabled) playCeramicChime(600, 0.05);
-    });
-  }
-
-  // Theme Toggle (Ceramic warm tone switcher)
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('theme-earth');
-      playCeramicChime(480, 0.06);
-    });
-  }
-
-  // Live Tray Clock & Date
-  function updateTrayClock() {
-    const clockEl = document.getElementById('tray-clock');
-    if (!clockEl) return;
-
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const date = String(now.getDate()).padStart(2, '0');
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    const dayStr = days[now.getDay()];
-
-    clockEl.querySelector('.clock-time').textContent = `${hours}:${minutes}:${seconds}`;
-    clockEl.querySelector('.clock-date').textContent = `${year}. ${month}. ${date} (${dayStr})`;
-  }
-  setInterval(updateTrayClock, 1000);
-  updateTrayClock();
-
-  // Internal Tab Switcher Logic
-  const allTabButtons = document.querySelectorAll('.program-tab');
-  allTabButtons.forEach(btn => {
+  curriculumTabs.forEach(btn => {
     btn.addEventListener('click', () => {
-      const parentTabBar = btn.closest('.program-tab-bar');
-      const parentWindow = btn.closest('.window-body');
-      if (!parentTabBar || !parentWindow) return;
+      const targetId = btn.getAttribute('data-target');
 
-      const targetPaneId = btn.getAttribute('data-tab-target');
+      curriculumTabs.forEach(b => b.classList.remove('active'));
+      curriculumPanes.forEach(pane => pane.classList.remove('active'));
 
-      // Update button states in same bar
-      parentTabBar.querySelectorAll('.program-tab').forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
       btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      // Show matching pane
-      parentWindow.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.classList.remove('active');
-      });
-      const targetPane = parentWindow.querySelector(`#${targetPaneId}`);
+      const targetPane = document.getElementById(targetId);
       if (targetPane) {
         targetPane.classList.add('active');
       }
-
-      playCeramicChime(500, 0.04);
     });
   });
 
-  // Faculty Search Filter
-  const facultyInput = document.getElementById('faculty-search-input');
+  // 4. Welfare Hub Tabs Switcher
+  const hubTabs = document.querySelectorAll('.hub-tabs-nav .hub-tab-btn');
+  const hubPanes = document.querySelectorAll('.hub-section .hub-content');
+
+  hubTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+
+      hubTabs.forEach(b => b.classList.remove('active'));
+      hubPanes.forEach(pane => pane.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+
+  // 5. Faculty Live Search Filter
+  const facultyInput = document.getElementById('faculty-search');
+  const facultyCards = document.querySelectorAll('#faculty-cards-container .faculty-card');
+
   if (facultyInput) {
     facultyInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const cards = document.querySelectorAll('#faculty-list .faculty-card');
-      cards.forEach(card => {
+      const val = e.target.value.toLowerCase().trim();
+      facultyCards.forEach(card => {
         const text = card.textContent.toLowerCase();
-        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-        if (text.includes(query) || tags.includes(query)) {
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        if (text.includes(val) || keywords.includes(val)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -438,18 +145,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Keyboard shortcut: ESC to close start menu or top window
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (startMenu.classList.contains('active')) {
-        closeStartMenu();
-      } else if (activeWindowId) {
-        const activeWin = document.getElementById(activeWindowId);
-        if (activeWin && activeWin.style.display !== 'none') {
-          // Don't close if only 1 window is left, just unfocus or close
-          closeWindow(activeWin);
-        }
-      }
-    }
+  // 6. Interactive 3D Arc Card Highlight on click
+  const arcCards = document.querySelectorAll('.arc-card');
+  arcCards.forEach(card => {
+    card.addEventListener('click', () => {
+      arcCards.forEach(c => c.classList.remove('active-center'));
+      card.classList.add('active-center');
+    });
   });
+
+  // 7. Stats Number Counter Animation
+  let animatedStats = false;
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animatedStats) {
+        animatedStats = true;
+        const statNums = document.querySelectorAll('.stat-num');
+        statNums.forEach(el => {
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          if (isNaN(target)) return;
+
+          let current = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+              if (target === 90) el.textContent = '90%';
+              else if (target === 30) el.textContent = '30+';
+              else if (target === 160) el.textContent = '160h';
+              else el.textContent = current;
+            } else {
+              el.textContent = current;
+            }
+          }, 30);
+        });
+      }
+    }, { threshold: 0.3 });
+
+    observer.observe(statsSection);
+  }
+
 });
