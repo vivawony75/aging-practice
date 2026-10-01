@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국립부경대학교 사회복지학전공 | PKNU Social Welfare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-ceramic">
+  <!-- Desktop Environment -->
+  <div id="desktop" class="desktop">
+    <!-- Desktop Background Visual / Ambient Shapes -->
+    <div class="ambient-clay-blob blob-1"></div>
+    <div class="ambient-clay-blob blob-2"></div>
+    <div class="ambient-clay-blob blob-3"></div>
+
+    <!-- Desktop Top Notification / Status Banner -->
+    <header class="desktop-header">
+      <div class="brand-badge">
+        <span class="ceramic-dot"></span>
+        <span class="brand-sub">국립부경대학교 공공안전경찰학부</span>
+        <span class="brand-main">사회복지학전공</span>
+      </div>
+      <div class="header-right-tools">
+        <a href="https://icms.pknu.ac.kr/ps1" target="_blank" rel="noopener noreferrer" class="link-chip" title="부경대학교 공식 학과 홈페이지">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          공식 학과웹
+        </a>
+        <a href="https://www.instagram.com/pknu_ps1/" target="_blank" rel="noopener noreferrer" class="link-chip instagram-chip" title="공식 인스타그램">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          @pknu_ps1
+        </a>
+        <button id="toggle-sound-btn" class="tool-btn" title="클릭 사운드 켜기/끄기" aria-label="사운드 토글">
+          <span class="sound-icon">🔔</span>
+        </button>
+        <button id="arrange-windows-btn" class="tool-btn" title="창 바둑판식 정렬">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          창 정렬
+        </button>
+      </div>
+    </header>
+
+    <!-- Desktop Icons Grid -->
+    <main class="desktop-icons-container" id="desktop-icons" role="region" aria-label="바탕화면 아이콘">
+      <div class="desktop-icon" data-window-target="win-intro" tabindex="0" role="button" aria-label="학과 소개 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">🏛️</span>
+        </div>
+        <span class="icon-label">학과 소개</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-faculty" tabindex="0" role="button" aria-label="교수진 소개 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">🎓</span>
+        </div>
+        <span class="icon-label">교수진 소개</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-curriculum" tabindex="0" role="button" aria-label="학부 및 대학원 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">📚</span>
+        </div>
+        <span class="icon-label">학부 & 대학원</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-dasom" tabindex="0" role="button" aria-label="다솜모임 창 열기">
+        <div class="icon-avatar clay-shadow highlight-icon">
+          <span class="icon-symbol">🤍</span>
+        </div>
+        <span class="icon-label">다솜모임</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-activities" tabindex="0" role="button" aria-label="학생활동 및 동아리 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">🌱</span>
+        </div>
+        <span class="icon-label">학생활동 & 동아리</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-achievements" tabindex="0" role="button" aria-label="학과 성과 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">🏆</span>
+        </div>
+        <span class="icon-label">학과 성과</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-welfarehub" tabindex="0" role="button" aria-label="사회복지 정보마당 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">💡</span>
+        </div>
+        <span class="icon-label">사회복지 정보</span>
+      </div>
+
+      <div class="desktop-icon" data-window-target="win-sns" tabindex="0" role="button" aria-label="인스타그램 & 소식 창 열기">
+        <div class="icon-avatar clay-shadow">
+          <span class="icon-symbol">📸</span>
+        </div>
+        <span class="icon-label">인스타 & 소식</span>
+      </div>
+    </main>
+
+    <!-- Floating Sticky Welcome Note (Artisanal Ceramic Memo) -->
+    <div class="sticky-ceramic-note" id="welcome-note">
+      <div class="note-pin"></div>
+      <div class="note-header">
+        <span class="note-tag">PKNU SW Welcome</span>
+        <button class="note-close-btn" onclick="document.getElementById('welcome-note').style.display='none';" aria-label="메모 닫기">×</button>
+      </div>
+      <h3 class="note-title">따뜻한 온기와 실천의 배움터</h3>
+      <p class="note-desc">
+        국립부경대학교 사회복지학전공 공식 웹에 오신 것을 환영합니다.
+        <strong>Noni Cerâmica</strong>의 자연스럽고 편안한 도자기 감성과 <strong>창(Window) 인터페이스</strong>로 전공의 모든 소식을 탐색해보세요.
+      </p>
+      <div class="note-footer">
+        <span class="note-guide">👉 아이콘을 더블클릭하거나 하단 시작메뉴를 눌러보세요.</span>
+      </div>
+    </div>
+
+    <!-- WINDOW 1: 학과 소개 (win-intro) -->
+    <section class="window clay-window" id="win-intro" data-window-id="win-intro" style="top: 70px; left: 180px; width: 760px; height: 560px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">🏛️</span>
+          <span class="win-title-text">부경대학교 사회복지학전공 소개 · Department Overview</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="intro-hero-banner">
+          <div class="hero-badge">Since 1998 · 28년 전통의 동남권 명문</div>
+          <h2 class="hero-quote">"인간존중과 사회정의를 실천하는<br><span class="accent-text">따뜻한 복지전문가</span>의 요람"</h2>
+          <p class="hero-subtext">국립부경대학교 인문사회과학대학 공공안전경찰학부 사회복지학전공</p>
+        </div>
+
+        <div class="intro-grid-cards">
+          <div class="ceramic-card">
+            <div class="card-icon">🎯</div>
+            <h4>교육 목적</h4>
+            <p>인간의 존엄성과 사회정의에 대한 확고한 가치관을 바탕으로 복지 현장의 복합적 문제를 창의적으로 해결하는 실천적 전문 복지인재를 양성합니다.</p>
+          </div>
+          <div class="ceramic-card">
+            <div class="card-icon">🤝</div>
+            <h4>핵심 가치</h4>
+            <p><strong>공감(Empathy)</strong>, <strong>실천(Action)</strong>, <strong>혁신(Innovation)</strong>의 3대 핵심가치 아래 지역사회와 함께 호흡하는 살아있는 교육을 실천합니다.</p>
+          </div>
+          <div class="ceramic-card">
+            <div class="card-icon">💻</div>
+            <h4>복지ICT 융합</h4>
+            <p>빅데이터와 AI 시대에 발맞춰 <strong>복지ICT 마이크로전공</strong>을 운영, 차세대 스마트 사회복지 행정 및 데이터 기반 복지 전달체계를 선도합니다.</p>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3 class="section-subheading">📍 전공 주요 정보 & 위치 안내</h3>
+          <div class="info-table-wrap">
+            <table class="ceramic-table">
+              <tbody>
+                <tr>
+                  <th>위치</th>
+                  <td>국립부경대학교 대연캠퍼스 인문사회경영관(C25) 724호 사회복지학전공사무실</td>
+                </tr>
+                <tr>
+                  <th>연락처</th>
+                  <td>☎ 051-629-5450 │ FAX 051-629-5455</td>
+                </tr>
+                <tr>
+                  <th>이메일</th>
+                  <td>pksw5450@pknu.ac.kr</td>
+                </tr>
+                <tr>
+                  <th>학위 과정</th>
+                  <td>학사(사회복지학전공), 일반대학원(석사·박사), 글로벌정책대학원(석사)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>상태: 정상 준비됨</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 2: 교수진 소개 (win-faculty) -->
+    <section class="window clay-window" id="win-faculty" data-window-id="win-faculty" style="top: 90px; left: 240px; width: 840px; height: 600px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">🎓</span>
+          <span class="win-title-text">교수진 소개 · Faculty Members</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="window-toolbar">
+          <div class="toolbar-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="faculty-search-input" placeholder="교수님 성함 또는 연구분야 검색 (예: 정책, 노인, 실천)..." aria-label="교수진 검색">
+          </div>
+          <span class="toolbar-hint">총 5인의 전임 교수진</span>
+        </div>
+
+        <div class="faculty-grid" id="faculty-list">
+          <!-- 교수 1: 오영삼 교수님 (전공주임) -->
+          <div class="faculty-card" data-tags="오영삼 전공주임 실천 기술 노인복지">
+            <div class="faculty-avatar-box">
+              <div class="avatar-placeholder tone-cafecito">
+                <span class="avatar-text">오영삼</span>
+              </div>
+              <span class="badge-role">교수 ｜ 학부 전공주임</span>
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-head">
+                <h3 class="faculty-name">오영삼 <span class="en-name">Oh, Young-Sam</span></h3>
+              </div>
+              <ul class="faculty-meta">
+                <li><strong>연구분야:</strong> 사회복지실천, 사회복지실천기술, 노인복지</li>
+                <li><strong>연구실:</strong> 인문사회경영관 7층 718호</li>
+                <li><strong>전화번호:</strong> 051-629-5463</li>
+                <li><strong>이메일:</strong> <a href="mailto:pknu503@gmail.com">pknu503@gmail.com</a></li>
+                <li><strong>지도동아리:</strong> 클럽신화</li>
+              </ul>
+              <div class="faculty-tags">
+                <span class="tag-chip">사회복지실천론</span>
+                <span class="tag-chip">노인복지론</span>
+                <span class="tag-chip">실천기술론</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 교수 2: 허원빈 교수님 (일반대학원 주임) -->
+          <div class="faculty-card" data-tags="허원빈 일반대학원 주임 아동복지 실천 중독 정신건강 질적연구">
+            <div class="faculty-avatar-box">
+              <div class="avatar-placeholder tone-blush">
+                <span class="avatar-text">허원빈</span>
+              </div>
+              <span class="badge-role">교수 ｜ 일반대학원 학과주임</span>
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-head">
+                <h3 class="faculty-name">허원빈 <span class="en-name">Huh, Won-Bin</span></h3>
+              </div>
+              <ul class="faculty-meta">
+                <li><strong>연구분야:</strong> 사회복지실천, 아동복지, 중독과 정신건강, 질적연구방법</li>
+                <li><strong>연구실:</strong> 인문사회경영관 7층 719호</li>
+                <li><strong>전화번호:</strong> 051-629-5464</li>
+                <li><strong>이메일:</strong> <a href="mailto:wonbinonebin@pknu.ac.kr">wonbinonebin@pknu.ac.kr</a></li>
+                <li><strong>지도동아리:</strong> HORA (오라)</li>
+              </ul>
+              <div class="faculty-tags">
+                <span class="tag-chip">아동복지론</span>
+                <span class="tag-chip">정신건강사회복지론</span>
+                <span class="tag-chip">질적연구방법론</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 교수 3: 노법래 교수님 (글로벌정책대학원 주임) -->
+          <div class="faculty-card" data-tags="노법래 글로벌정책대학원 주임 복지국가 지역비교 사회통계 빅데이터">
+            <div class="faculty-avatar-box">
+              <div class="avatar-placeholder tone-grass">
+                <span class="avatar-text">노법래</span>
+              </div>
+              <span class="badge-role">교수 ｜ 글로벌정책대학원 학과주임</span>
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-head">
+                <h3 class="faculty-name">노법래 <span class="en-name">Roh, Beop-Rae</span></h3>
+              </div>
+              <ul class="faculty-meta">
+                <li><strong>연구분야:</strong> 복지국가 및 지역비교, 사회통계(빅데이터), 복지계량분석</li>
+                <li><strong>연구실:</strong> 인문사회경영관 7층 717호</li>
+                <li><strong>전화번호:</strong> 051-629-5487</li>
+                <li><strong>이메일:</strong> <a href="mailto:profroh@pknu.ac.kr">profroh@pknu.ac.kr</a></li>
+                <li><strong>담당영역:</strong> 정책비교 & 데이터 복지</li>
+              </ul>
+              <div class="faculty-tags">
+                <span class="tag-chip">사회복지조사론</span>
+                <span class="tag-chip">사회통계</span>
+                <span class="tag-chip">복지국가론</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 교수 4: 김은정 교수님 -->
+          <div class="faculty-card" data-tags="김은정 사회복지정책 사회복지행정 지역복지서비스">
+            <div class="faculty-avatar-box">
+              <div class="avatar-placeholder tone-aveia">
+                <span class="avatar-text">김은정</span>
+              </div>
+              <span class="badge-role">교수</span>
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-head">
+                <h3 class="faculty-name">김은정 <span class="en-name">Kim, Eun-Jung</span></h3>
+              </div>
+              <ul class="faculty-meta">
+                <li><strong>연구분야:</strong> 사회복지정책, 사회복지행정, 지역복지서비스</li>
+                <li><strong>연구실:</strong> 인문사회경영관 7층 715호</li>
+                <li><strong>전화번호:</strong> 051-629-5459</li>
+                <li><strong>이메일:</strong> <a href="mailto:ejkim@pknu.ac.kr">ejkim@pknu.ac.kr</a></li>
+                <li><strong>담당영역:</strong> 정책 및 전달체계 연구</li>
+              </ul>
+              <div class="faculty-tags">
+                <span class="tag-chip">사회복지정책론</span>
+                <span class="tag-chip">사회복지행정론</span>
+                <span class="tag-chip">지역사회복지론</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 교수 5: 조윤호 교수님 -->
+          <div class="faculty-card" data-tags="조윤호 아동청소년복지 국제개발협력 지역사회개발 프로그램개발">
+            <div class="faculty-avatar-box">
+              <div class="avatar-placeholder tone-blush">
+                <span class="avatar-text">조윤호</span>
+              </div>
+              <span class="badge-role">교수</span>
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-head">
+                <h3 class="faculty-name">조윤호 <span class="en-name">Cho, Yoon-Ho</span></h3>
+              </div>
+              <ul class="faculty-meta">
+                <li><strong>연구분야:</strong> 아동청소년복지, 국제개발협력, 지역사회개발</li>
+                <li><strong>연구실:</strong> 인문사회경영관 7층 716호</li>
+                <li><strong>전화번호:</strong> 051-629-5488</li>
+                <li><strong>이메일:</strong> <a href="mailto:ireenee2u@pknu.ac.kr">ireenee2u@pknu.ac.kr</a></li>
+                <li><strong>담당영역:</strong> 청소년 및 국제개발 실천</li>
+              </ul>
+              <div class="faculty-tags">
+                <span class="tag-chip">청소년복지론</span>
+                <span class="tag-chip">국제사회복지론</span>
+                <span class="tag-chip">프로그램개발과평가</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>국립부경대학교 사회복지학전공 교수진 (2026 기준)</span>
+        <span>상담 및 연구 문의: 학과사무실 051-629-5450</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 3: 학부 및 대학원 구분 안내 (win-curriculum) -->
+    <section class="window clay-window" id="win-curriculum" data-window-id="win-curriculum" style="top: 110px; left: 300px; width: 880px; height: 620px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">📚</span>
+          <span class="win-title-text">학부 및 대학원 교육과정 체계 · Academic Programs</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <!-- Tab Navigation Buttons -->
+        <div class="program-tab-bar" role="tablist">
+          <button class="program-tab active" data-tab-target="tab-undergrad" role="tab" aria-selected="true">
+            🌱 학부 (사회복지학전공 학사)
+          </button>
+          <button class="program-tab" data-tab-target="tab-grad-general" role="tab" aria-selected="false">
+            🎓 일반대학원 (석사·박사 과정)
+          </button>
+          <button class="program-tab" data-tab-target="tab-grad-global" role="tab" aria-selected="false">
+            🏛️ 글로벌정책대학원 (실무 석사)
+          </button>
+          <button class="program-tab" data-tab-target="tab-compare" role="tab" aria-selected="false">
+            📊 3개 과정 한눈에 비교
+          </button>
+        </div>
+
+        <!-- TAB 1: 학부 과정 -->
+        <div class="tab-pane active" id="tab-undergrad" role="tabpanel">
+          <div class="callout-box">
+            <h4>🌱 학부 과정 (사회복지학전공 - 4년제 학사)</h4>
+            <p>체계적인 이론 교육과 160시간 이상의 풍부한 현장실습, 복지ICT 마이크로전공 이수를 통해 <strong>사회복지사 1급 자격 취득</strong> 및 공공·민간 복지 전문가로 성장합니다.</p>
+          </div>
+
+          <div class="curriculum-stage-grid">
+            <div class="stage-step">
+              <span class="step-num">1학년</span>
+              <h5>기초 소양 탐색</h5>
+              <ul>
+                <li>사회복지개론</li>
+                <li>인간행동과 사회환경</li>
+                <li>사회복지 인권과 가치</li>
+              </ul>
+            </div>
+            <div class="stage-step">
+              <span class="step-num">2학년</span>
+              <h5>기초 실천 & 정책</h5>
+              <ul>
+                <li>사회복지실천론</li>
+                <li>사회복지조사론</li>
+                <li>사회복지정책론</li>
+                <li>지역사회복지론</li>
+              </ul>
+            </div>
+            <div class="stage-step">
+              <span class="step-num">3학년</span>
+              <h5>심화 기술 & 실습</h5>
+              <ul>
+                <li>사회복지실천기술론</li>
+                <li>사회복지행정론</li>
+                <li>사회복지법제와실천</li>
+                <li><strong>사회복지현장실습 (160h)</strong></li>
+              </ul>
+            </div>
+            <div class="stage-step">
+              <span class="step-num">4학년</span>
+              <h5>응용 분야 & 1급 대비</h5>
+              <ul>
+                <li>프로그램개발과평가</li>
+                <li>정신건강사회복지론</li>
+                <li>노인·아동·장애인복지</li>
+                <li><strong>사회복지사 1급 시험 대비</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="highlight-banner-micro">
+            <h5>💡 복지ICT 마이크로전공 연계 운영</h5>
+            <p>공공안전경찰학부 사회복지학전공 학생들은 빅데이터 분석, 스마트케어 시스템, 공공데이터 활용 등 복지와 최신 디지털 기술을 접목한 '복지ICT 마이크로전공'을 동시 이수하여 취업 경쟁력을 극대화할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- TAB 2: 일반대학원 -->
+        <div class="tab-pane" id="tab-grad-general" role="tabpanel">
+          <div class="callout-box tone-blush-box">
+            <h4>🎓 일반대학원 사회복지학과 (석사·박사 학위과정)</h4>
+            <p><strong>학과주임: 허원빈 교수</strong> │ 사회과학적 깊이를 갖춘 전문 연구자, 대학교수 및 국책 연구기관의 복지 정책 전문가를 양성하는 주간 전일제 학술 과정입니다.</p>
+          </div>
+
+          <div class="detail-two-col">
+            <div class="col-card">
+              <h5>🎯 주요 연구 및 교육 분야</h5>
+              <ul class="styled-list">
+                <li><strong>고급 사회복지이론 연구:</strong> 복지철학, 사회정의론, 복지체제 비교</li>
+                <li><strong>질적·양적 연구방법론:</strong> 고급 통계학, 메타분석, 근거이론, 현상학적 분석</li>
+                <li><strong>특화 실천 연구:</strong> 아동·청소년 복지, 노인케어 모델, 정신건강 및 중독재활</li>
+                <li><strong>학술 활동:</strong> KCI/SSCI급 논문 게재 지도, 국내외 학술대회 정기 발표</li>
+              </ul>
+            </div>
+            <div class="col-card">
+              <h5>💼 졸업 후 진로</h5>
+              <ul class="styled-list">
+                <li>대학교수, 연구교수 및 시간강사</li>
+                <li>한국보건사회연구원, 서울연구원, 부산연구원 등 국공립 싱크탱크</li>
+                <li>사회복지공동모금회, 복지재단 책임연구원</li>
+                <li>대형 의료원 의료사회복지 임상전문가</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: 글로벌정책대학원 -->
+        <div class="tab-pane" id="tab-grad-global" role="tabpanel">
+          <div class="callout-box tone-grass-box">
+            <h4>🏛️ 글로벌정책대학원 사회복지학과 (실무 석사과정)</h4>
+            <p><strong>학과주임: 노법래 교수</strong> │ 사회복지 현장 종사자, 복지기관 최고관리자, 공공행정 공무원을 위한 특수대학원 야간 석사과정으로, 실무와 정책적 리더십을 겸비합니다.</p>
+          </div>
+
+          <div class="detail-two-col">
+            <div class="col-card">
+              <h5>🌟 특수대학원의 강점 및 특성</h5>
+              <ul class="styled-list">
+                <li><strong>현장 밀착형 야간 수업:</strong> 재직 중인 사회복지사, 공무원을 위한 최적의 강의 시간표 운영</li>
+                <li><strong>정책 입안 및 리더십:</strong> 복지기관 경영 전략, 비영리조직 마케팅, 인사·재무관리</li>
+                <li><strong>동남권 탄탄한 인적 네트워크:</strong> 부산·경남 일대 복지관장, 실무팀장, 정책결정권자 간의 강력한 동문 네트워크</li>
+                <li><strong>실무 중심 학위논문 / 연구보고서:</strong> 현장 문제를 직접 해결하는 정책 대안 연구</li>
+              </ul>
+            </div>
+            <div class="col-card">
+              <h5>📋 입학 대상 및 전형</h5>
+              <ul class="styled-list">
+                <li>사회복지시설 및 비영리기관 실무자 및 관리자</li>
+                <li>사회복지전담공무원 및 공공기관 복지 실무자</li>
+                <li>사회복지 실천 분야로 전문성을 확장하고자 하는 직장인</li>
+                <li>매년 전기/후기 모집 (서류심사 및 면접)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: 비교표 -->
+        <div class="tab-pane" id="tab-compare" role="tabpanel">
+          <h4 class="section-subheading">📊 3개 교육과정 종합 비교</h4>
+          <div class="info-table-wrap">
+            <table class="ceramic-table comparison-table">
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>학부 (사회복지학전공)</th>
+                  <th>일반대학원 (석·박사)</th>
+                  <th>글로벌정책대학원 (석사)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>수여 학위</strong></td>
+                  <td>사회복지학사 (B.A.)</td>
+                  <td>문학석사 / 문학박사</td>
+                  <td>사회복지학석사 (야간)</td>
+                </tr>
+                <tr>
+                  <td><strong>교육 목표</strong></td>
+                  <td>사회복지 실천 전문인 양성<br>(1급 자격증 취득)</td>
+                  <td>학술 연구 및 고급 정책분석가,<br>교수 요원 양성</td>
+                  <td>복지기관 경영관리자 및<br>현장 정책 리더 육성</td>
+                </tr>
+                <tr>
+                  <td><strong>수업 방식</strong></td>
+                  <td>주간 전일제 (4년)</td>
+                  <td>주간 전일제 / 연구실 중심</td>
+                  <td>야간 수업 (직장인 친화형)</td>
+                </tr>
+                <tr>
+                  <td><strong>학과 주임</strong></td>
+                  <td>오영삼 교수</td>
+                  <td>허원빈 교수</td>
+                  <td>노법래 교수</td>
+                </tr>
+                <tr>
+                  <td><strong>주요 진로</strong></td>
+                  <td>복지관, 공무원, 병원, 공단</td>
+                  <td>대학교수, 연구원, 국책연구소</td>
+                  <td>복지기관장, 정책기획관, 공무원</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>학부 및 대학원 입학 문의: 학과사무실 (051-629-5450)</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 4: 다솜모임 소개와 특성 (win-dasom) -->
+    <section class="window clay-window" id="win-dasom" data-window-id="win-dasom" style="top: 130px; left: 210px; width: 780px; height: 570px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">🤍</span>
+          <span class="win-title-text">다솜모임 소개와 특성 · DASOM Student Gathering</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="dasom-banner">
+          <span class="dasom-badge">전공 자치 학술·실천 모임</span>
+          <h2 class="dasom-name">다솜(DASOM) 모임</h2>
+          <p class="dasom-origin">"<strong>'다솜'</strong>은 사랑을 뜻하는 순우리말로, 인간존중과 이웃 사랑을 실천하는 부경 사회복지의 따뜻한 정신을 담고 있습니다."</p>
+        </div>
+
+        <div class="content-block">
+          <h3 class="section-subheading">✨ 다솜모임의 4대 핵심 특성</h3>
+          <div class="dasom-feature-grid">
+            <div class="dasom-card">
+              <div class="dasom-icon">📖</div>
+              <h4>1. 실천적 학술 연구 & 세미나</h4>
+              <p>전공 교과서에 머무르지 않고, 최신 복지 이슈(사회적 고립, 스마트 노인돌봄, 위기아동 보호 등)에 대해 학생들이 주도적으로 발제하고 토론하는 정기 학술 세미나를 운영합니다.</p>
+            </div>
+
+            <div class="dasom-card">
+              <div class="dasom-icon">🤝</div>
+              <h4>2. 지역사회 나눔과 밀착 봉사</h4>
+              <p>부산 남구 및 대연동 인근 복지관과 연계하여 소외계층 멘토링, 밑반찬 나눔, 벽화 그리기, 어르신 스마트폰 교육 등 현장 체감형 자원봉사를 정기적으로 수행합니다.</p>
+            </div>
+
+            <div class="dasom-card">
+              <div class="dasom-icon">🌱</div>
+              <h4>3. 선후배 멘토-멘티 결속</h4>
+              <p>1학년 신입생부터 4학년 예비졸업생까지 하나로 묶는 멘토링 체계를 통해 대학 생활 적응, 수강신청 노하우, 사회복지사 1급 시험 팁, 취업 포트폴리오를 대물림합니다.</p>
+            </div>
+
+            <div class="dasom-card">
+              <div class="dasom-icon">📑</div>
+              <h4>4. 정기 활동보고회 개최</h4>
+              <p>부경대학교 사회복지학전공 공식 홈페이지 전공소식을 통해 차수별(1회, 2회... 통합 10회 등) 활동보고서를 정기 공시하며 지속적인 학과 역사를 기록하고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dasom-quote-box">
+          <blockquote>
+            "혼자 가면 빨리 가지만, 함께 가면 멀리 갑니다. 다솜모임은 예비 사회복지사들이 서로의 어깨를 토닥이며 따뜻한 연대의 가치를 배우는 가장 소중한 둥지입니다."
+          </blockquote>
+          <span class="quote-author">- 부경대학교 사회복지학전공 다솜모임 회원 일동 -</span>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>참여 대상: 부경대학교 사회복지학전공 재학생 누구나</span>
+        <span>활동 주기: 매월 정기 모임 및 방학 중 워크숍</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 5: 학생활동 및 동아리 (win-activities) -->
+    <section class="window clay-window" id="win-activities" data-window-id="win-activities" style="top: 150px; left: 260px; width: 800px; height: 580px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">🌱</span>
+          <span class="win-title-text">학생활동 & 전공 동아리 · Student Life & Clubs</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="content-block">
+          <h3 class="section-subheading">👥 사회복지학전공 학생회 자치활동</h3>
+          <div class="activity-timeline">
+            <div class="timeline-item">
+              <span class="timeline-badge">봄 3~5월</span>
+              <div class="timeline-body">
+                <strong>신입생 오리엔테이션 & 배움터</strong>, 개강총회, 스승의 날 감사 행사, 춘계 체육대회
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-badge">여름 6~8월</span>
+              <div class="timeline-body">
+                <strong>사회복지현장실습 파견</strong>, 종강총회, 하계 전공 스터디 및 연합 봉사캠프
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-badge">가을 9~11월</span>
+              <div class="timeline-body">
+                <strong>사회복지인의 밤 (학술제)</strong>, 2학기 개강총회, Credi-T 비교과 공모전 출품, 동아리 박람회
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-badge">겨울 12~2월</span>
+              <div class="timeline-body">
+                <strong>사회복지사 1급 시험 응원전</strong>, 동계 실습 및 졸업식, 학생회 총선거
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3 class="section-subheading">🎯 전공 공인 동아리 및 소모임</h3>
+          <div class="clubs-grid">
+            <div class="club-card">
+              <div class="club-header">
+                <span class="club-tag tone-blush-tag">실천·학술 동아리</span>
+                <h4>HORA (오라)</h4>
+                <p class="club-advisor">지도교수: <strong>허원빈 교수님</strong></p>
+              </div>
+              <p class="club-desc">아동·청소년 복지 및 정신건강 분야에 대한 전문 스터디와 복지관 연계 봉사, 사회적 이슈 탐색을 진행합니다. 공식 인스타그램 계정을 활발히 운영 중입니다.</p>
+              <div class="club-footer">
+                <span class="social-link">📸 인스타: @pknu_hora_2026</span>
+              </div>
+            </div>
+
+            <div class="club-card">
+              <div class="club-header">
+                <span class="club-tag tone-cafecito-tag">봉사·실천 동아리</span>
+                <h4>클럽신화</h4>
+                <p class="club-advisor">지도교수: <strong>오영삼 교수님</strong></p>
+              </div>
+              <p class="club-desc">노인 복지시설 정기 봉사, 사회복지실천기술 실습 훈련 및 선후배 간 끈끈한 친목 도모를 바탕으로 현장형 사회복지사의 기본기를 다집니다.</p>
+              <div class="club-footer">
+                <span class="social-link">🤝 대연동 어르신 케어 봉사단</span>
+              </div>
+            </div>
+
+            <div class="club-card">
+              <div class="club-header">
+                <span class="club-tag tone-grass-tag">기획·미디어 동아리</span>
+                <h4>theme:띰</h4>
+                <p class="club-advisor">지도교수: <strong>전공주임 교수님</strong></p>
+              </div>
+              <p class="club-desc">사회복지 아이디어 기획, 각종 대외 공모전 준비, 복지 이슈 팟캐스트 제작 및 미디어 콘텐츠 발행을 주도하는 창의 소모임입니다.</p>
+              <div class="club-footer">
+                <span class="social-link">🎙️ 팟캐스트 & 영상 제작</span>
+              </div>
+            </div>
+
+            <div class="club-card">
+              <div class="club-header">
+                <span class="club-tag tone-aveia-tag">미디어 채널</span>
+                <h4>학과 유튜브 & AI 박람회</h4>
+                <p class="club-advisor">운영: <strong>학생회 미디어국</strong></p>
+              </div>
+              <p class="club-desc">부경대 사회복지전공 공식 유튜브 채널(<code>@ps1pknu</code>) 및 뉴스레터 발간, 최신 AI 복지 박람회 참여 등 뉴미디어 홍보를 주도합니다.</p>
+              <div class="club-footer">
+                <span class="social-link">▶️ YouTube: @ps1pknu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>동아리 가입 문의: 매 학기 초 학생회실 (인문사회경영관)</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 6: 학과 성과 (win-achievements) -->
+    <section class="window clay-window" id="win-achievements" data-window-id="win-achievements" style="top: 100px; left: 320px; width: 780px; height: 570px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">🏆</span>
+          <span class="win-title-text">학과 성과 및 대외 협력 · Department Achievements</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="achievement-metric-bar">
+          <div class="metric-item">
+            <span class="metric-number">90%+</span>
+            <span class="metric-label">1급 국가시험 합격률 (전국평균 상회)</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">30+</span>
+            <span class="metric-label">부산·경남 산학협력 MOU 기관</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">전공자 실습 160시간 수료</span>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3 class="section-subheading">📰 최근 주요 성과 뉴스</h3>
+          <div class="news-list">
+            <article class="news-card">
+              <span class="news-date">2026. 02. 23</span>
+              <span class="news-category">MOU 체결</span>
+              <h4>[국제신문] 부경대 사회복지학전공, 대연3동 복지공감 네트워크 협약 체결</h4>
+              <p>대연3동 지역사회보장협의체 및 주민센터와 민·관·학 협약을 맺고, 고립 위기가구 발굴 및 맞춤형 복지서비스 제공을 위한 대학 연계 안전망을 가동했습니다.</p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-date">2025. 12. 15</span>
+              <span class="news-category">장학 소식</span>
+              <h4>정효택 장학금 수여 및 우수 복지인재 지속 선발</h4>
+              <p>따뜻한 인성과 학업 역량을 겸비한 사회복지학전공 장학생을 선발하여 장학증서와 장학금을 전달하고, 미래 복지 리더로의 도약을 격려했습니다.</p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-date">2025. 11. 20</span>
+              <span class="news-category">공모전 수상</span>
+              <h4>[수상소식] 2025 Credi-T 학생주도형 비교과 아이디어 공모전 수상</h4>
+              <p>사회복지학전공 재학생 팀이 지역사회 디지털 소외 어르신을 위한 융합 복지 프로그램 모델을 제안하여 우수 비교과 아이디어상을 수상했습니다.</p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-date">2025. 10. 10</span>
+              <span class="news-category">대외 공모전</span>
+              <h4>[부경투데이] 고용노동부 주관 '미래내일 일경험 공모전' 우수성과 수상</h4>
+              <p>사회복지 실천 현장 일경험 프로젝트에 참가한 전공 학생들이 전문성과 기획력을 인정받아 우수 성과작으로 선정되는 영예를 안았습니다.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3 class="section-subheading">💼 졸업생 취업 진출 현황</h3>
+          <div class="career-tags-container">
+            <span class="career-tag">🏛️ 사회복지전담공무원(국가직·지방직)</span>
+            <span class="career-tag">🏥 대학병원 및 종합병원 의료사회복지사</span>
+            <span class="career-tag">🏢 국민건강보험공단 · 국민연금공단 · 근로복지공단</span>
+            <span class="career-tag">🏡 종합사회복지관 · 노인복지관 · 장애인복지관</span>
+            <span class="career-tag">🌍 월드비전 · 초록우산어린이재단 · 굿네이버스</span>
+            <span class="career-tag">💡 사회적기업 · 대기업 ESG 사회공헌팀</span>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>취업 및 진로 상담: 지도교수 면담 및 학과 커리어센터 연계</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 7: 사회복지 정보마당 (win-welfarehub) -->
+    <section class="window clay-window" id="win-welfarehub" data-window-id="win-welfarehub" style="top: 80px; left: 190px; width: 850px; height: 610px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">💡</span>
+          <span class="win-title-text">사회복지 정보마당 · Welfare Knowledge Hub</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="program-tab-bar" role="tablist">
+          <button class="program-tab active" data-tab-target="hub-cert" role="tab" aria-selected="true">
+            📋 사회복지사 1급 국가시험
+          </button>
+          <button class="program-tab" data-tab-target="hub-practice" role="tab" aria-selected="false">
+            🏥 현장실습 160h 가이드
+          </button>
+          <button class="program-tab" data-tab-target="hub-licenses" role="tab" aria-selected="false">
+            🎖️ 전문 자격증 로드맵
+          </button>
+          <button class="program-tab" data-tab-target="hub-portals" role="tab" aria-selected="false">
+            🔗 필수 복지 사이트 모음
+          </button>
+        </div>
+
+        <!-- SUBTAB 1: 1급 국가시험 -->
+        <div class="tab-pane active" id="hub-cert" role="tabpanel">
+          <div class="callout-box">
+            <h4>📋 사회복지사 1급 국가자격시험 핵심 정보</h4>
+            <p>보건복지부 주관, 한국산업인력공단(Q-Net) 시행. 매년 1월 말~2월 초 실시되며, 4년제 학사 학위 취득(예정) 시 별도 실무경력 없이 응시 가능합니다.</p>
+          </div>
+
+          <div class="exam-table-wrap">
+            <table class="ceramic-table">
+              <thead>
+                <tr>
+                  <th>교시</th>
+                  <th>영역 및 시험과목</th>
+                  <th>문항 수</th>
+                  <th>시험 시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1교시</strong></td>
+                  <td><strong>사회복지기초:</strong> 인간행동과 사회환경 (25), 사회복지조사론 (25)</td>
+                  <td>50문항</td>
+                  <td>50분</td>
+                </tr>
+                <tr>
+                  <td><strong>2교시</strong></td>
+                  <td><strong>사회복지실천:</strong> 사회복지실천론 (25), 사회복지실천기술론 (25), 지역사회복지론 (25)</td>
+                  <td>75문항</td>
+                  <td>75분</td>
+                </tr>
+                <tr>
+                  <td><strong>3교시</strong></td>
+                  <td><strong>사회복지정책과 제도:</strong> 사회복지정책론 (25), 사회복지행정론 (25), 사회복지법제론 (25)</td>
+                  <td>75문항</td>
+                  <td>75분</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tip-box">
+            <strong>💡 합격 기준:</strong> 매 과목 40% 이상(과락 방지), 3개 영역 전 과목 총점 60% 이상(총 200문제 중 120문제 이상 정답) 득점 시 최종 합격!
+          </div>
+        </div>
+
+        <!-- SUBTAB 2: 현장실습 가이드 -->
+        <div class="tab-pane" id="hub-practice" role="tabpanel">
+          <div class="callout-box tone-cafecito-box">
+            <h4>🏥 사회복지현장실습 (160시간 규정)</h4>
+            <p>보건복지부 개정 법령에 따라 공인된 실습기관에서 최소 160시간의 직접 실습과 실습세미나 30시간(15회)을 반드시 이수해야 합니다.</p>
+          </div>
+
+          <div class="practice-steps">
+            <div class="p-step">
+              <span class="p-num">1</span>
+              <h5>선이수 과목 확인</h5>
+              <p>필수과목 4과목 + 선택과목 2과목 이상 이수 완료 확인</p>
+            </div>
+            <div class="p-step">
+              <span class="p-num">2</span>
+              <h5>기관 섭외 및 승인</h5>
+              <p>보건복지부 선정 실습기관 등록처 확인 후 지원 및 실습의뢰 공문 발송</p>
+            </div>
+            <div class="p-step">
+              <span class="p-num">3</span>
+              <h5>160시간 실습 수행</h5>
+              <p>슈퍼바이저 지도하에 하루 4~8시간 기준 성실 실습 및 실습일지 매일 작성</p>
+            </div>
+            <div class="p-step">
+              <span class="p-num">4</span>
+              <h5>평가서 및 성적보고</h5>
+              <p>기관 실습평가서 원본 밀봉 제출 및 학과 실습평가회 발표</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBTAB 3: 자격증 로드맵 -->
+        <div class="tab-pane" id="hub-licenses" role="tabpanel">
+          <div class="license-grid">
+            <div class="license-card">
+              <h4>정신건강사회복지사 (1급·2급)</h4>
+              <p>국립정신건강센터, 대학병원 정신건강의학과, 지역 정신건강복지센터에서 전문 수련과정(1년 이상)을 이수하여 취득하는 국가 전문자격.</p>
+            </div>
+            <div class="license-card">
+              <h4>의료사회복지사</h4>
+              <p>대학병원 및 종합병원 환자 및 보호자의 심리사회적, 경제적 문제 상담과 재활 지원을 담당하는 법정 전문자격.</p>
+            </div>
+            <div class="license-card">
+              <h4>학교사회복지사</h4>
+              <p>초·중·고등학교 현장에서 학생들의 심리적 적응, 학교폭력 예방, 교육복지 안전망을 구축하는 교육복지 전문자격.</p>
+            </div>
+            <div class="license-card">
+              <h4>건강가정사</h4>
+              <p>가족복지론 등 지정된 건강가정 관련 교과목을 이수하여 시·군·구 가족센터(구 건강가정지원센터)에서 가족지원 실천가로 활동.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBTAB 4: 필수 사이트 모음 -->
+        <div class="tab-pane" id="hub-portals" role="tabpanel">
+          <div class="portal-link-grid">
+            <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">국가 포털</span>
+              <h4>복지로 (Bokjiro)</h4>
+              <p>대한민국 정부 대표 복지포털. 맞춤형 복지서비스 모의계산 및 온라인 복지신청.</p>
+            </a>
+            <a href="https://www.welfare.net" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">협회</span>
+              <h4>한국사회복지사협회</h4>
+              <p>사회복지사 1·2급 자격증 교부신청, 보수교육 이수, 채용 구인구직 정보 제공.</p>
+            </a>
+            <a href="https://www.mohw.go.kr" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">주무부처</span>
+              <h4>보건복지부</h4>
+              <p>대한민국 보건·복지 정책 총괄, 법령 정보 및 복지 예산·시책 발표.</p>
+            </a>
+            <a href="https://www.bokji.net" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">협의회</span>
+              <h4>한국사회복지협의회</h4>
+              <p>사회복지 나눔포털, VMS 사회복지 자원봉사 인증관리 시스템 연계 포털.</p>
+            </a>
+            <a href="https://www.basw.or.kr" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">지역</span>
+              <h4>부산광역시사회복지사협회</h4>
+              <p>부산 지역 사회복지사 처우 개선, 부산권 기관 채용 공고 및 네트워크.</p>
+            </a>
+            <a href="https://whalebe.pknu.ac.kr" target="_blank" rel="noopener noreferrer" class="portal-card">
+              <span class="portal-badge">교내</span>
+              <h4>부경대학교 웨일비 (Whale-BE)</h4>
+              <p>부경대 학생들을 위한 비교과 프로그램 신청 및 마일리지 적립 시스템.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>자료 출처: 보건복지부 사회복지사업법 및 한국사회복지사협회 기준</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- WINDOW 8: 인스타그램 & 학과 갤러리 (win-sns) -->
+    <section class="window clay-window" id="win-sns" data-window-id="win-sns" style="top: 120px; left: 270px; width: 790px; height: 580px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">📸</span>
+          <span class="win-title-text">공식 SNS & 전공 갤러리 · @pknu_ps1 Instagram</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-minimize" title="최소화" aria-label="최소화">_</button>
+          <button class="win-btn win-maximize" title="최대화" aria-label="최대화">□</button>
+          <button class="win-btn win-close" title="닫기" aria-label="닫기">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="instagram-profile-card">
+          <div class="insta-avatar">
+            <span class="insta-logo-text">PKNU<br>PS1</span>
+          </div>
+          <div class="insta-details">
+            <div class="insta-id-row">
+              <h3 class="insta-handle">pknu_ps1</h3>
+              <a href="https://www.instagram.com/pknu_ps1/" target="_blank" rel="noopener noreferrer" class="insta-follow-btn">
+                인스타그램 바로가기 ↗
+              </a>
+            </div>
+            <p class="insta-bio">
+              🏛️ 국립부경대학교 공공안전경찰학부 사회복지학전공 공식 계정<br>
+              🤍 배려와 사랑으로 사람을 살리는 복지전문가들의 생생한 일상과 학과 소식!<br>
+              📍 부산광역시 남구 용소로 45 인문사회경영관 724호
+            </p>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h4 class="section-subheading">✨ SNS 피드 갤러리 하이라이트</h4>
+          <div class="insta-feed-grid">
+            <div class="feed-item">
+              <div class="feed-thumb tone-cafecito">
+                <span class="feed-badge">행사</span>
+                <p>2026학년도 1학기 신입생 배움터 & 대면식 스케치</p>
+              </div>
+              <span class="feed-meta">❤️ 128 · 💬 14</span>
+            </div>
+            <div class="feed-item">
+              <div class="feed-thumb tone-blush">
+                <span class="feed-badge">학술</span>
+                <p>[다솜모임] 2026 정기 학술세미나 & 멘토링 결속의 날</p>
+              </div>
+              <span class="feed-meta">❤️ 154 · 💬 19</span>
+            </div>
+            <div class="feed-item">
+              <div class="feed-thumb tone-grass">
+                <span class="feed-badge">봉사</span>
+                <p>대연3동 복지공감 네트워크 협약 체결 및 현장 봉사</p>
+              </div>
+              <span class="feed-meta">❤️ 182 · 💬 23</span>
+            </div>
+            <div class="feed-item">
+              <div class="feed-thumb tone-aveia">
+                <span class="feed-badge">응원</span>
+                <p>2026 사회복지사 1급 시험 응시 선배 응원전!</p>
+              </div>
+              <span class="feed-meta">❤️ 210 · 💬 31</span>
+            </div>
+            <div class="feed-item">
+              <div class="feed-thumb tone-cafecito">
+                <span class="feed-badge">동아리</span>
+                <p>동아리 HORA x 클럽신화 연합 문화제 스케치</p>
+              </div>
+              <span class="feed-meta">❤️ 142 · 💬 16</span>
+            </div>
+            <div class="feed-item">
+              <div class="feed-thumb tone-blush">
+                <span class="feed-badge">공모전</span>
+                <p>Credi-T 비교과 아이디어 공모전 수상 인증 샷!</p>
+              </div>
+              <span class="feed-meta">❤️ 195 · 💬 28</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-statusbar">
+        <span>팔로우: @pknu_ps1 │ 실시간 DM 및 행사 소식 확인 가능</span>
+        <span>국립부경대학교 사회복지학전공</span>
+      </div>
+    </section>
+
+    <!-- Start Menu Popup -->
+    <div class="start-menu clay-shadow" id="start-menu" role="menu" aria-label="시작 메뉴">
+      <div class="start-menu-sidebar">
+        <div class="pknu-emblem-box">
+          <span class="emblem-star">★</span>
+          <span class="emblem-school">국립부경대학교</span>
+          <span class="emblem-dept">사회복지학전공</span>
+        </div>
+        <div class="sidebar-motto">
+          인간존중 · 사회정의 · 따뜻한 실천
+        </div>
+      </div>
+      <div class="start-menu-content">
+        <div class="menu-group-title">전공 탐색 프로그램</div>
+        <ul class="start-menu-list">
+          <li data-launch-target="win-intro">
+            <span class="menu-icon">🏛️</span>
+            <div class="menu-text">
+              <strong>학과 소개</strong>
+              <small>인사말, 교육목적, 학과 정보</small>
+            </div>
+          </li>
+          <li data-launch-target="win-faculty">
+            <span class="menu-icon">🎓</span>
+            <div class="menu-text">
+              <strong>교수진 소개</strong>
+              <small>전임 교수 5인의 연구분야 및 연락처</small>
+            </div>
+          </li>
+          <li data-launch-target="win-curriculum">
+            <span class="menu-icon">📚</span>
+            <div class="menu-text">
+              <strong>학부 & 대학원 안내</strong>
+              <small>학사, 일반대학원(석·박사), 글로벌정책대학원</small>
+            </div>
+          </li>
+          <li data-launch-target="win-dasom">
+            <span class="menu-icon">🤍</span>
+            <div class="menu-text">
+              <strong>다솜모임</strong>
+              <small>순우리말 사랑의 학과 자치 모임</small>
+            </div>
+          </li>
+          <li data-launch-target="win-activities">
+            <span class="menu-icon">🌱</span>
+            <div class="menu-text">
+              <strong>학생활동 & 동아리</strong>
+              <small>학생회, HORA, 클럽신화, theme:띰</small>
+            </div>
+          </li>
+          <li data-launch-target="win-achievements">
+            <span class="menu-icon">🏆</span>
+            <div class="menu-text">
+              <strong>학과 성과</strong>
+              <small>MOU 체결, 공모전 수상, 취업 현황</small>
+            </div>
+          </li>
+          <li data-launch-target="win-welfarehub">
+            <span class="menu-icon">💡</span>
+            <div class="menu-text">
+              <strong>사회복지 정보마당</strong>
+              <small>1급 국가고시, 160h 실습, 자격증, 유관기관</small>
+            </div>
+          </li>
+          <li data-launch-target="win-sns">
+            <span class="menu-icon">📸</span>
+            <div class="menu-text">
+              <strong>인스타그램 & 갤러리</strong>
+              <small>@pknu_ps1 공식 SNS 피드</small>
+            </div>
+          </li>
+        </ul>
+        <div class="start-menu-footer">
+          <a href="https://www.pknu.ac.kr" target="_blank" rel="noopener noreferrer" class="sublink-chip">부경대 대표홈</a>
+          <a href="https://portal.pknu.ac.kr" target="_blank" rel="noopener noreferrer" class="sublink-chip">부경포털</a>
+          <button id="close-all-windows-btn" class="sublink-chip danger">모든 창 닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taskbar (윈도우 작업표시줄) -->
+    <footer class="taskbar" id="taskbar" role="toolbar" aria-label="작업 표시줄">
+      <div class="taskbar-left">
+        <button class="start-btn" id="start-btn" aria-label="시작 버튼" aria-haspopup="true">
+          <span class="start-symbol">❖</span>
+          <span class="start-text">시작</span>
+        </button>
+      </div>
+
+      <div class="taskbar-apps" id="taskbar-apps" role="tablist" aria-label="실행 중인 창 목록">
+        <!-- Dynamically managed app tabs in JS -->
+      </div>
+
+      <div class="taskbar-tray">
+        <div class="tray-theme-toggle" id="theme-toggle-btn" title="도자기 톤 변경" role="button" tabindex="0">
+          <span class="tray-circle tone-1"></span>
+          <span class="tray-circle tone-2"></span>
+        </div>
+        <div class="tray-clock" id="tray-clock" title="현재 시각">
+          <span class="clock-time">19:56</span>
+          <span class="clock-date">2026. 10. 01 (목)</span>
+        </div>
+        <button class="show-desktop-btn" id="show-desktop-btn" title="바탕화면 보기" aria-label="바탕화면 보기"></button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
